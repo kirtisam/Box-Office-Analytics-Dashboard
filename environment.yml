@@ -1,12 +1,7 @@
-name: box-office-env
-channels:
-  - defaults
-  - conda-forge
 dependencies:
   - python=3.10
-  - pandas
   - numpy
+  - pandas
   - seaborn
   - flake8
   - pytest
-  - pip
