@@ -16,7 +16,8 @@ jobs:
       max-parallel: 5
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
@@ -25,7 +26,8 @@ jobs:
           activate-environment: box-office-env
           environment-file: environment.yml
           use-mamba: true
-          cache-environment: true
+          python-version: 3.10
+          channels: conda-forge,defaults
 
       - name: Lint with flake8
         shell: bash -l {0}
@@ -38,5 +40,6 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate box-office-env
-          pytest       
+          pytest
+
 
